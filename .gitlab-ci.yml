@@ -1,0 +1,3 @@
+job:
+  script: |-
+    curl -H 'Content-Type: application/json' -X POST -d "{\"triggerFrom\":\"gitlab\", \"targetId\":196, \"bizArgs\":[{\"jobParams\": {\"gitUrl\": \"$CI_PROJECT_URL\", "branch\": \"$CI_COMMIT_REF_NAME\", \"project_name\": \"$CI_PROJECT_NAME\",\"project_path\": \"$CI_PROJECT_PATH\", \"user\": \"$GITLAB_USER_NAME\"}}], \"description\": \"$CI_COMMIT_REF_NAME $CI_COMMIT_SHORT_SHA $GITLAB_USER_NAME $CI_COMMIT_TITLE\"}" https://video-flask.corp.kuaishou.com/attm/task/ci.do

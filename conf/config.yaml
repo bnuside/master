@@ -1,0 +1,26 @@
+test_type: android
+pkg_name: com.smile.gifmaker
+pkg_path: ''
+serialno:
+- m7mzj7jjzljnyp55
+android:
+  adb_server_host: 127.0.0.1
+  adb_server_port: 5037
+  alert_watcher: true
+ios:
+  need_launch_wda: true
+  wda_launch_mode: tidevice
+  wda_bundle_id: com.krunner.wda.chenli.xctrunner
+  wda_path: ''
+  wda_proxy_url: ''
+  alert_watcher: true
+  alert_max_depth: 16
+case_reruns: 0
+need_record: false
+need_upload_result: false
+acount:
+  code: null
+  phone_num: null
+  password: null
+kim_key: null
+execute_id: null

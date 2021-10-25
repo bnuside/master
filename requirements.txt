@@ -1,0 +1,2 @@
+--extra-index-url=https://pypi.corp.kuaishou.com/infra/prod/+simple/
+krunner
