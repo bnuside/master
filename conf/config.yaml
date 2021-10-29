@@ -24,6 +24,7 @@ acount:
   password: null
 kim_key: null
 execute_id: null
+<<<<<<< HEAD
 home_scheme: null
 kuaishou_schema:
 - kwai://home
