@@ -32,8 +32,9 @@ logger.info(f"{logo}  {__version__} \n")
 @click.option('--run_times', type=int, default=1, help='testcases execute times')
 @click.option('--install/--no-install', default=False, help='need to reinstall the app')
 @click.option('--execute_id', type=int, help='the task execute id')
+@click.option('--home_scheme', type=str, help='home page scheme')
 def main(test_type, pkg_name, pkg_path, serialno, install, host, port, wda_path, wda_proxy_url,
-         test_package, test_module, test_class, test_method, run_times, execute_id):
+         test_package, test_module, test_class, test_method, run_times, execute_id, home_scheme):
     if not test_type:
         raise ParamsError('the param: test_type must be set, usage: --test_type xxx')
     if not pkg_name:
@@ -55,6 +56,7 @@ def main(test_type, pkg_name, pkg_path, serialno, install, host, port, wda_path,
     update_config_value('ios', 'wda_proxy_url', value=wda_proxy_url)
     update_config_value('ios', 'need_launch_wda', value=False) if wda_proxy_url else update_config_value('ios', 'need_launch_wda', value=True)
     update_config_value('execute_id', value=execute_id)
+    update_config_value('home_scheme', value=home_scheme)
 
     testsuite = TestSuiteBase(test_package=list(test_package), test_module=list(test_module), test_class=list(test_class),
                               test_method=list(test_method), run_times=run_times, install=install)
