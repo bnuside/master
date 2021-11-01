@@ -13,7 +13,7 @@ class TestPrivacyPopup(KRunner):
     def setUp(self):
         adb.clear_app_data(get_config_value('serialno')[0], get_config_value('pkg_name'))
         time.sleep(5)
-        adb.start_schema(get_config_value('serialno')[0], 'kwai://home')
+        adb.start_schema(get_config_value('serialno')[0], get_config_value('home_scheme'))
         time.sleep(5)
 
     def test_popup_three_pages(self):
