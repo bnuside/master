@@ -68,4 +68,5 @@ class TestPrivacyPopup(KRunner):
         time.sleep(2)
 
         PrivacyPopup.agree_button.click(5)
+
         assert not PrivacyPopup.agree_button.exist(5)
