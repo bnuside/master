@@ -7,6 +7,7 @@ android:
   adb_server_host: 127.0.0.1
   adb_server_port: 5037
   alert_watcher: true
+
 ios:
   need_launch_wda: true
   wda_launch_mode: tidevice
@@ -24,4 +25,6 @@ acount:
   password: null
 kim_key: null
 execute_id: null
-home_scheme: null
+
+home_scheme: kwai://home
+
