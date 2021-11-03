@@ -11,10 +11,9 @@ from krunner.plugins.login import LoginTool
 from pageobjects.android.privacy_popup import PrivacyPopup
 from pageobjects.android.open_notification import Open_Notification
 
-
 class TestOpenPush(KRunner):
     '''
-    设置页添加开启引导
+    设置页添加push开关
     '''
 
     def setUp(self):
