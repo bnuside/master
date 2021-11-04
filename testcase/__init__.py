@@ -4,6 +4,7 @@ import json
 import os
 import re
 import time
+import traceback
 import typing
 import unittest
 from modulefinder import ModuleFinder
