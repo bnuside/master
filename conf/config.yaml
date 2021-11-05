@@ -1,5 +1,5 @@
 test_type: android
-pkg_name: com.kuaishou.nebula
+pkg_name: com.smile.gifmaker
 pkg_path: ''
 serialno:
 - fd0c44f9
@@ -28,6 +28,9 @@ home_scheme: null
 kuaishou_schema:
 - kwai://home
 - kwai://myprofile
+- kwai://settings
 nebula_schema:
 - ksnebula://home
 - ksnebula://myprofile
+- ksnebula://settings
+
