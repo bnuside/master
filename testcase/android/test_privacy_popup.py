@@ -3,6 +3,7 @@ from krunner.utils import logger
 from krunner.utils import adb
 from krunner.conf import get_config_value
 
+
 from pageobjects.android.privacy_popup import PrivacyPopup
 from testcase.krunner import KRunner
 
