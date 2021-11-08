@@ -18,3 +18,4 @@ class MainPage(object):
     smile_btn_search = AndroidElement(resourceId='com.smile.gifmaker:id/right_btn', annotation='搜索按钮')
     search_find_title = AndroidElement(text='搜索发现', annotation='搜索发现标题')
     smile_search_page_back_but = AndroidElement(resourceId='com.smile.gifmaker:id/left_btn', annotation='搜索页返回按钮')
+
