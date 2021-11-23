@@ -24,11 +24,10 @@ class InterestPopup(object):
     # set_btn=AndroidElement(resourceId='com.smile.gifmaker:id/setting_iv',annotation='设置按钮')
     # about_btn=AndroidElement(text='关于我们',annotation='关于我们按钮')
     #logo_btn=AndroidElement(resourceId='com.smile.gifmaker:id/logo',annotation='快手图标')
-
-
     """兴趣标签元素定位"""
 
     interest_btn=AndroidElement(resourceId="com.smile.gifmaker:id/interest_tag_dialog_title",annotation='兴趣标签弹窗')
     interest_game_btn=AndroidElement(text='游戏',annotation='游戏选项')
     interest_music_btn=AndroidElement(text='音乐',annotation='音乐选项')
     interest_submit_btn=AndroidElement(resourceId='com.smile.gifmaker:id/interest_tag_submit',annotation='提交兴趣标签')
+
