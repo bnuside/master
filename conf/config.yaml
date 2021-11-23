@@ -2,7 +2,7 @@ test_type: android
 pkg_name: com.smile.gifmaker
 pkg_path: ''
 serialno:
-- m7mzj7jjzljnyp55
+- H8B6R19815006506
 android:
   adb_server_host: 127.0.0.1
   adb_server_port: 5037
