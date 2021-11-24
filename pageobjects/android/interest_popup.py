@@ -24,15 +24,10 @@ class InterestPopup(object):
     # set_btn=AndroidElement(resourceId='com.smile.gifmaker:id/setting_iv',annotation='设置按钮')
     # about_btn=AndroidElement(text='关于我们',annotation='关于我们按钮')
     #logo_btn=AndroidElement(resourceId='com.smile.gifmaker:id/logo',annotation='快手图标')
+    """兴趣标签元素定位"""
 
-    """快速进入设置页"""
-    logo_btn=AndroidElement(resourceId='com.smile.gifmaker:id/logo',annotation='快手图标')
-
-    #btn_channel = AndroidElement(resourceId='id/version_tv',  annotation='渠道号')
-    btn_channel2 = AndroidElement(resourceId='id/channel', annotation='预装渠道号')
-    growth_btn=AndroidElement(text='增长',annotation='摇一摇增长tab')
-
-
-
-
+    interest_btn=AndroidElement(resourceId="com.smile.gifmaker:id/interest_tag_dialog_title",annotation='兴趣标签弹窗')
+    interest_game_btn=AndroidElement(text='游戏',annotation='游戏选项')
+    interest_music_btn=AndroidElement(text='音乐',annotation='音乐选项')
+    interest_submit_btn=AndroidElement(resourceId='com.smile.gifmaker:id/interest_tag_submit',annotation='提交兴趣标签')
 
