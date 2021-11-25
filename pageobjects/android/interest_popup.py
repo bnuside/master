@@ -29,5 +29,13 @@ class InterestPopup(object):
     interest_btn=AndroidElement(resourceId="com.smile.gifmaker:id/interest_tag_dialog_title",annotation='兴趣标签弹窗')
     interest_game_btn=AndroidElement(text='游戏',annotation='游戏选项')
     interest_music_btn=AndroidElement(text='音乐',annotation='音乐选项')
+    interest_any_btn=AndroidElement(resourceId='com.smile.gifmaker:id/interest_tag_item_text',annotation='选择明星娱乐选项')
     interest_submit_btn=AndroidElement(resourceId='com.smile.gifmaker:id/interest_tag_submit',annotation='提交兴趣标签')
+
+    interest_all_btn=AndroidElement(text='全部标签',annotation='点击全部标签')
+    interest_ok_btn=AndroidElement(resourceId="com.smile.gifmaker:id/milano_player_seekbar",annotation='选好了')
+    interest_toast_btn=AndroidElement(text='将按照您的喜好进行推荐',annotation='toast提示"')
+    interest_close_btn=AndroidElement(resourceId='com.smile.gifmaker:id/interest_tag_close',annotation="点击关闭按钮")
+
+
 
