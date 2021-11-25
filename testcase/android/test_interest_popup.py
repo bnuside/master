@@ -10,39 +10,62 @@ from krunner.plugins.mock import Mock
 from krunner.plugins.login import LoginTool
 
 
-
-
 class TestInterestPopup(KRunner):
 
-    def setUp(self):
-        # adb.clear_app_data(get_config_value('serialno')[0], get_config_value('pkg_name'))
-        # time.sleep(5)
-        get_config_value
+    def start_app(self):
         adb.start_schema(get_config_value('serialno')[0], get_config_value('home_scheme'))
         time.sleep(5)
-
-
-    def test_interest_tag(self):
-        """兴趣标签"""
-        # logger.info("等待启动完成，闪屏加载完成")
-        self.driver.watch_alert()
-
-        """兴趣标签展示"""
-
+    def interest_mock(self):
         self.mock = Mock(host='kproxy.host',port=4947,token='200021_6e5bb5167343cc7763db061a92a265ea',user='sunping')
-        self.mock.start_rule(3555) # mockid
-        self.mock.set_proxy() # android通过adb设置全局代理 ios通过启动app的环境参数实现代理
-        # your code
-        # for i in range(4):
-        #     self.driver.swipe_up()
+        self.mock.start_rule(3555)
+        self.mock.set_proxy()
+
+    def test_interest_tag_page1(self):
+        self.driver.watch_alert()
+        self.interest_mock()
+        self.driver.shell("am force-stop com.smile.gifmaker")
+        time.sleep(3)
+        self.start_app()
+        logger.info("安卓back触发兴趣标签页展示")
         self.driver.back()
-        assert InterestPopup.interest_btn.exist(3)
+        logger.info("点击游戏按钮")
         InterestPopup.interest_game_btn.click()
+        logger.info("点击音乐按钮")
         InterestPopup.interest_music_btn.click()
+        logger.info("点击提交按钮")
         InterestPopup.interest_submit_btn.click()
-        time.sleep(2)
-        self.mock.stop_rule(3555)
-        self.mock.del_proxy()
+        self.assert_equal('展示兴趣标签弹窗', InterestPopup.interest_submit_btn, True)
+        time.sleep(3)
+        self.assert_equal('提交兴趣标签', InterestPopup.interest_toast_btn.exist, True)
+
+    def test_interest_tag_page2(self):
+        self.driver.watch_alert()
+        self.interest_mock()
+        self.driver.shell("am force-stop com.smile.gifmaker")
+        time.sleep(3)
+        self.start_app()
+        self.driver.back()
+        logger.info("点击全部按钮")
+        InterestPopup.interest_all_btn.click(3)
+        logger.info("选择任意一个标签")
+        InterestPopup.interest_any_btn.click()
+        logger.info("点击提交")
+        InterestPopup.interest_submit_btn.click(3)
+
+        #self.assert_equal('提交兴趣标签展示toast', InterestPopup.interest_toast_btn.exist, True)
+
+
+    def test_interest_tag_close(self):
+        self.driver.watch_alert()
+        self.interest_mock()
+        self.driver.shell("am force-stop com.smile.gifmaker")
+        time.sleep(3)
+        self.start_app()
+        self.driver.back()
+        assert InterestPopup.interest_close_btn.exist(2)
+        InterestPopup.interest_close_btn.click(3)
+
+
 
 
 
