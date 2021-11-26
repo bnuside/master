@@ -21,7 +21,7 @@ class TestPrivacyPopup(KRunner):
         """能否弹出隐私弹窗"""
 
         logger.info("等待启动完成，闪屏加载完成")
-        time.sleep(5)
+        time.sleep(20)
         assert PrivacyPopup.agree_button.exist(5)
         assert PrivacyPopup.disagree_button.exist(5)
         #
@@ -48,12 +48,12 @@ class TestPrivacyPopup(KRunner):
         PrivacyPopup.agree_button.click()
 
     def test_popup_p1_agree(self):
-        time.sleep(5)
+        time.sleep(20)
         PrivacyPopup.agree_button.click(5)
         assert not PrivacyPopup.agree_button.exist(5)
 
     def test_popup_p2_agree(self):
-        time.sleep(5)
+        time.sleep(20)
         PrivacyPopup.disagree_button.click(5)
         time.sleep(2)
 
@@ -61,7 +61,7 @@ class TestPrivacyPopup(KRunner):
         assert not PrivacyPopup.agree_button.exist(5)
 
     def test_popup_p3_agree(self):
-        time.sleep(5)
+        time.sleep(20)
         PrivacyPopup.disagree_button.click(5)
         time.sleep(2)
 
