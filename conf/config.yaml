@@ -2,11 +2,7 @@ test_type: ios
 pkg_name: com.kwai.gifshow.beta1
 pkg_path: https://multiserver.corp.kuaishou.com/data_multiserver/test/com_kwai_gif/iOS/20211030/c57355ae516a7acd00dcc7e56e8ac853/Kwai-iOS.ipa
 serialno:
-<<<<<<< HEAD
 - NVKJSOZT6DPNCAKJ
-=======
-- 00008101-0019481C0AC3003A
->>>>>>> 5eb7e95 ([case] iOS 隐私弹窗用例完成)
 android:
   adb_server_host: 127.0.0.1
   adb_server_port: 5037
