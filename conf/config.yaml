@@ -2,7 +2,7 @@ test_type: android
 pkg_name: com.smile.gifmaker
 pkg_path: ''
 serialno:
-- NVKJSOZT6DPNCAKJ
+- C7YVB21105017044
 android:
   adb_server_host: 127.0.0.1
   adb_server_port: 5037
@@ -33,3 +33,4 @@ nebula_schema:
 - ksnebula://myprofile
 - ksnebula://settings
 home_scheme: null
+

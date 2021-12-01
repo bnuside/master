@@ -13,6 +13,7 @@ android:
     - '暂不开启'
     - '同意并继续'
     - '浏览记录'
+    - '好的'
   resourceId:
     - 'com.smile.gifmaker:id/close_btn'
     - 'com.smile.gifmaker:id/img_close'
