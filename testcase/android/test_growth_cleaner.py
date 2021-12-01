@@ -1,6 +1,5 @@
 #! /usr/bin/python3
 import time
-
 from krunner.utils import logger
 from krunner.utils import adb
 from krunner.plugins.login import LoginTool
@@ -44,6 +43,11 @@ class TestGrowthCleaner(KRunner):
             GrowthCleaner.cleaner_not_selected_btn.click()
         self.assert_equal('进入清理完成页面，出现重新扫描按钮', GrowthCleaner.rescan_btn.exist(), True)
 
+    def test_rescan_click(self):
+        self.test_clean_garbage()
+        logger.info("点击清理完成页面的'重新扫描'按钮")
+        GrowthCleaner.rescan_btn.click()
+
     def test_rank_click(self):
         self.test_clean_garbage()
         logger.info("点击清理完成页面的'今日热'按钮")
@@ -55,5 +59,3 @@ class TestGrowthCleaner(KRunner):
         logger.info("点击清理完成页面的'刷精选'按钮")
         GrowthCleaner.selection_btn.click()
         self.assert_equal('成功进入精选页面', SelectionPage.like_btn.exist(), True)
-
-
