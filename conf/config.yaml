@@ -16,7 +16,7 @@ ios:
   alert_watcher: true
   alert_max_depth: 16
 case_reruns: 0
-need_record: false
+need_record: true
 need_upload_result: true
 acount:
   code: null
