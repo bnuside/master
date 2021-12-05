@@ -13,6 +13,7 @@ class TestLoginOptimize(KRunner):
     """快手登录优化测试"""
 
     def setUp(self):
+        self.start_time = time.time()
         adb.clear_app_data(get_config_value('serialno')[0], get_config_value('pkg_name'))
         time.sleep(2)
         logger.info('启动快手')

@@ -13,6 +13,8 @@ from testcase.krunner import KRunner
 
 class TestGrowthCleaner(KRunner):
     """主站垃圾清理功能测试"""
+    def setUp(self):
+        self.start_time = time.time()
 
     def test_clean_entry_show(self):
         logger.info("长按 icon 展示垃圾待清理入口")

@@ -11,6 +11,8 @@ from krunner.plugins.login import LoginTool
 
 
 class TestInterestPopup(KRunner):
+    def setUp(self):
+        self.start_time = time.time()
 
     def start_app(self):
         adb.start_schema(get_config_value('serialno')[0], get_config_value('kuaishou_schema')[0])

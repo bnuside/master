@@ -15,6 +15,7 @@ from utils.login_util import LoginUtil
 class TestQuitLoginOptimize(KRunner):
 
     def setUp(self):
+        self.start_time = time.time()
         adb.clear_app_data(get_config_value('serialno')[0], get_config_value('pkg_name'))
         time.sleep(2)
 

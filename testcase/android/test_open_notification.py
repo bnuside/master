@@ -17,6 +17,7 @@ class TestOpenPush(KRunner):
     '''
 
     def setUp(self):
+        self.start_time = time.time()
         logger.info('启动app')
         adb.start_schema(get_config_value('serialno')[0],'kwai://myprofile')
         # time.sleep(2)
