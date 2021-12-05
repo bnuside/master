@@ -13,10 +13,16 @@ from testcase.krunner import KRunner
 from krunner.plugins.mock import Mock
 from krunner.plugins.login import LoginTool
 from testcase.android.abtest import addOrDeleteAbtest
+
+
 class TestKgiPopup(KRunner):
+    def setUp(self):
+        self.start_time = time.time()
+
     def start_app(self):
         adb.start_schema(get_config_value('serialno')[0], get_config_value('kuaishou_schema')[0])
         time.sleep(5)
+
     def test_kgi_01rdid(self):
         #self.driver.uninstall_app()
         random_did='ANDROID_' + str(uuid.uuid4()).replace('-', '')[:16]
