@@ -11,6 +11,7 @@ class TestPrivacyPopup(KRunner):
     """快手隐私弹窗测试"""
 
     def setUp(self):
+        self.start_time = time.time()
         self.driver.stop_watcher()
         adb.clear_app_data(get_config_value('serialno')[0], get_config_value('pkg_name'))
         time.sleep(5)
