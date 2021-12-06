@@ -9,8 +9,9 @@ from testcase.krunner import KRunner
 class TestPrivacyPopup(KRunner):
     """隐私弹窗测试"""
 
+    @KRunner.post_setup
     def setUp(self):
-        self.start_time = time.time()
+        # self.start_time = time.time()
         self.driver.handle_alert('nothing')
         self.driver.uninstall(get_config_value('pkg_name'))
         time.sleep(5)
