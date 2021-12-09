@@ -11,15 +11,16 @@ from krunner.plugins.login import LoginTool
 from pageobjects.android.privacy_popup import PrivacyPopup
 from pageobjects.android.open_notification import Open_Notification
 
-class TestOpenPush(KRunner):
-    '''
-    设置页添加push开关
-    '''
 
+class TestOpenPush(KRunner):
+    """
+    设置页添加push开关
+    """
+
+    @KRunner.post_setup
     def setUp(self):
-        self.start_time = time.time()
         logger.info('启动app')
-        adb.start_schema(get_config_value('serialno')[0],'kwai://myprofile')
+        adb.start_schema(get_config_value('serialno')[0], 'kwai://myprofile')
         # time.sleep(2)
         # logger.info('判断隐私协议')
         # PrivacyPopup.agree_button.click_if_exist()
@@ -51,13 +52,11 @@ class TestOpenPush(KRunner):
         self.get_screen('/openPush.png')
         logger.info('执行完成')
 
-
     # 通知关闭后，设置页总开关出现气泡引导
     def test_bubble_guide(self):
         self.common()
         assert Open_Notification.acceptance_Btn.exist()
         self.get_screen('/bubble.png')
-
 
     # 通知关闭后,设置页总开关出现弹窗
     def test_push_popue(self):
@@ -73,7 +72,6 @@ class TestOpenPush(KRunner):
         self.driver.back()
         time.sleep(2)
         self.get_screen('/openPush.png')
-
 
     # 打开设置页操作
     def common(self):
