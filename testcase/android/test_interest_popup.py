@@ -1,4 +1,4 @@
-import time,os
+import time, os
 from krunner.utils import logger
 from krunner.utils import adb
 from krunner.conf import get_config_value
@@ -11,14 +11,12 @@ from krunner.plugins.login import LoginTool
 
 
 class TestInterestPopup(KRunner):
-    def setUp(self):
-        self.start_time = time.time()
-
     def start_app(self):
         adb.start_schema(get_config_value('serialno')[0], get_config_value('kuaishou_schema')[0])
         time.sleep(5)
+
     def interest_mock(self):
-        self.mock = Mock(host='kproxy.host',port=4947,token='200021_6e5bb5167343cc7763db061a92a265ea',user='sunping')
+        self.mock = Mock(host='kproxy.host', port=4947, token='200021_6e5bb5167343cc7763db061a92a265ea', user='sunping')
         self.mock.start_rule(3555)
         self.mock.set_proxy()
 
@@ -59,7 +57,6 @@ class TestInterestPopup(KRunner):
 
         self.assert_equal('提交兴趣标签展示toast', InterestPopup.interest_toast_btn.exist(), True)
 
-
     def test_interest_tag_close(self):
         self.driver.watch_alert()
         self.interest_mock()
@@ -70,21 +67,3 @@ class TestInterestPopup(KRunner):
         self.driver.back()
         assert InterestPopup.interest_close_btn.exist(2)
         InterestPopup.interest_close_btn.click(3)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
