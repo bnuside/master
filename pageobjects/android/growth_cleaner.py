@@ -11,6 +11,7 @@ class GrowthCleaner(object):
 
     curr_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'template')
     entry = ImgElement(template=curr_dir + '/cleaner_long_click.png', annotation='垃圾待清理入口')
+    clean_entry = AndroidElement(text='垃圾待清理', annotation='桌面长按快手垃圾待清理入口，文本匹配')
     scan_btn = AndroidElement(textContains='扫描垃圾', annotation='扫描垃圾按钮')
     cleaner_selected_btn = AndroidElement(textContains='清理选中垃圾', annotation='清理选中垃圾按钮')
     cleaner_not_selected_btn = AndroidElement(text='完成', annotation='不清理垃圾')
