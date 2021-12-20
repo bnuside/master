@@ -24,6 +24,10 @@ class Scheme:
     def settings(self):
         return f'{self._protocal_map[self._pkg]}settings'
 
+    @property
+    def login_page(self):
+        return f'{self._protocal_map[self._pkg]}login'
+
 
 if __name__ == '__main__':
     pkg = 'com.smile.gifmaker'
