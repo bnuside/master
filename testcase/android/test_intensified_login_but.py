@@ -10,27 +10,32 @@ from pageobjects.android.main_page import MainPage
 from testcase.krunner import KRunner
 from utils.login_util import LoginUtil
 
+from conf.schemes import Scheme
+
 
 class TestLoginOptimize(KRunner):
     """快手登录优化测试"""
 
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.sn = get_config_value('serialno')[0]
+        cls.pkg = get_config_value('pkg_name')
+        cls.scheme = Scheme(cls.pkg)
+
     @KRunner.post_setup
     def setUp(self):
-        adb.clear_app_data(get_config_value('serialno')[0], get_config_value('pkg_name'))
+        adb.clear_app_data(self.sn, self.pkg)
         time.sleep(2)
         logger.info('启动快手')
-        adb.start_schema(get_config_value('serialno')[0], get_config_value('kuaishou_schema')[0])
-        time.sleep(2)
-        self.driver.watch_alert()
+        self.driver.open_schema(self.scheme.home)
         time.sleep(5)
         logger.info("杀死进程")
-        os.popen(f'adb shell am force-stop {get_config_value("pkg_name")}')
+        self.driver.stop_app(self.pkg)
         time.sleep(5)
         logger.info("进到主页面")
-        adb.start_schema(get_config_value('serialno')[0], get_config_value('kuaishou_schema')[0])
+        self.driver.open_schema(self.scheme.home)
         time.sleep(10)
-        self.driver.watch_alert()
-        time.sleep(2)
 
     def test_login_but_function_and_show(self):
         self.assert_equal('测试强化后的按钮存在', MainPage.intensified_login_but.exist(2), True)

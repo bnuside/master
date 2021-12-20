@@ -6,6 +6,8 @@ from krunner.conf import get_config_value
 from pageobjects.android.privacy_popup import PrivacyPopup
 from testcase.krunner import KRunner
 
+from conf.basic_info import *
+
 
 class TestPrivacyPopup(KRunner):
     """快手隐私弹窗测试"""
@@ -13,9 +15,9 @@ class TestPrivacyPopup(KRunner):
     @KRunner.post_setup
     def setUp(self):
         self.driver.stop_watcher()
-        adb.clear_app_data(get_config_value('serialno')[0], get_config_value('pkg_name'))
+        adb.clear_app_data(sn, pkg)
         time.sleep(5)
-        adb.start_schema(get_config_value('serialno')[0], get_config_value('home_scheme'))
+        adb.start_schema(sn, pkg)
         time.sleep(5)
 
     def test_agree(self):
