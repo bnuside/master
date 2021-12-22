@@ -37,9 +37,9 @@ logger.info(f"{logo}  {__version__} \n")
 @click.option('--run_times', type=int, default=1, help='testcases execute times')
 @click.option('--install/--no-install', default=False, help='need to reinstall the app')
 @click.option('--execute_id', type=int, help='the task execute id')
-@click.option('--home_scheme', type=str, help='home page scheme')
+@click.option('--re_apk_url', type=str, help='reinstalling apk url')
 def main(test_type, pkg_name, pkg_path, serialno, install, host, port, wda_path, wda_proxy_url,
-         test_package, test_module, test_class, test_method, run_times, execute_id, home_scheme):
+         test_package, test_module, test_class, test_method, run_times, execute_id, re_apk_url):
     if not test_type:
         raise ParamsError('the param: test_type must be set, usage: --test_type xxx')
     if not pkg_name:
@@ -63,7 +63,7 @@ def main(test_type, pkg_name, pkg_path, serialno, install, host, port, wda_path,
                                                                                                          'need_launch_wda',
                                                                                                          value=True)
     update_config_value('execute_id', value=execute_id)
-    update_config_value('home_scheme', value=home_scheme)
+    update_config_value('re_apk_url', value=re_apk_url)
 
     testsuite = TestSuiteBase(test_package=list(test_package), test_module=list(test_module),
                               test_class=list(test_class),
