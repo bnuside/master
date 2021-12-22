@@ -1,8 +1,8 @@
 test_type: android
 pkg_name: com.smile.gifmaker
-pkg_path: https://multiserver.corp.kuaishou.com/data_multiserver/test/kwai-android/Android/20211214/e4cf21b10bf1ec3a58a99b9c53d88be0/kwai-android-dc_samsung-gifmakerrelease-9.11.20.23164_x64.apk
+pkg_path: ''
 serialno:
-- R3CNA0DGESX
+- a52556b0
 android:
   adb_server_host: 127.0.0.1
   adb_server_port: 5037
@@ -41,4 +41,4 @@ scheme_head:
   com.kuaishou.nebula: ksnebula://
   com.kwai.nebula.beta1: ksnebula://
   com.kwai.nebula.beta: ksnebula://
-re_apk_url: https://multiserver.corp.kuaishou.com/data_multiserver/test/kwai-android/Android/20211220/dbc484376ce8b3cb9c1de02355c01f4c/kwai-android-xiaomi-gifmakerrelease-9.11.30.23257_x64.apk
+re_apk_url: null
