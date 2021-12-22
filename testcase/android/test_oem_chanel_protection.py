@@ -51,7 +51,8 @@ class TestOEMChannelProtection(KRunner):
         self.assert_equal(f'预期渠道号是：[{get_channel(brand)}]，实际渠道号是：[{target}]', target, get_channel(brand))
 
     def test_re_install_instant(self):
-        adb.clear_app_data(sn, pkg)
+        adb.uninstall_app(sn, pkg)
+        self.driver.install_app(apk_path, password='kuai0000')
         time.sleep(5)
         self.driver.install_app(re_apk_url, password='kuai0000')
         time.sleep(60)
