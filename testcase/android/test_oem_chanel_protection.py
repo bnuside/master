@@ -2,8 +2,6 @@ import os
 import time
 from krunner.utils import logger
 from krunner.utils import adb
-from krunner.utils import get_local_package_path
-from krunner.conf import get_config_value
 from krunner.plugins.login import LoginTool
 
 from pageobjects.android.settings import Settings
@@ -55,8 +53,7 @@ class TestOEMChannelProtection(KRunner):
     def test_re_install_instant(self):
         adb.clear_app_data(sn, pkg)
         time.sleep(5)
-        re_apk_path = get_local_package_path(re_apk_url)
-        adb.install_app(sn, re_apk_path)
+        self.driver.install_app(re_apk_url, password='kuai0000')
         time.sleep(60)
 
         brand = adb.get_device_brand(sn)
@@ -87,8 +84,7 @@ class TestOEMChannelProtection(KRunner):
 
     def test_re_install_later(self):
         time.sleep(5)
-        re_apk_path = get_local_package_path(re_apk_url)
-        adb.install_app(sn, re_apk_path)
+        self.driver.install_app(re_apk_url, password='kuai0000')
         time.sleep(60)
 
         brand = adb.get_device_brand(sn)
