@@ -19,6 +19,9 @@ class TestGrowthCleaner(KRunner):
         logger.info("开始扫描垃圾")
         scheme = f'{TestGrowthCleaner._get_scheme_head()}cleaner'
         adb.start_schema(get_config_value('serialno')[0], scheme)
+        time.sleep(5)
+        if GrowthCleaner.scan_btn.exist():
+            GrowthCleaner.scan_btn.click()
         time.sleep(30)
 
     @staticmethod
