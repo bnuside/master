@@ -1,12 +1,8 @@
 test_type: android
-pkg_name: com.kuaishou.nebula
+pkg_name: com.smile.gifmaker
 pkg_path: ''
 serialno:
-<<<<<<< HEAD
 - 4bfd9e
-=======
-- fd0c44f9
->>>>>>> 04d70aaad22adf93c539922b0934b32ff345eb20
 android:
   adb_server_host: 127.0.0.1
   adb_server_port: 5037
@@ -29,16 +25,12 @@ acount:
   password: null
 kim_key: null
 execute_id: null
-<<<<<<< HEAD
 
 home_scheme: kwai://home/hot
-
-=======
-home_scheme: null
 kuaishou_schema:
 - kwai://home
 - kwai://myprofile
 nebula_schema:
 - ksnebula://home
 - ksnebula://myprofile
->>>>>>> 04d70aaad22adf93c539922b0934b32ff345eb20
+

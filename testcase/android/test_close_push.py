@@ -7,7 +7,6 @@ from pageobjects.android.open_setting_push import OpenSettingPush
 from krunner.utils import adb, logger
 from testcase.krunner import KRunner
 from krunner.conf import get_config_value
-from appium.webdriver.webdriver import WebDriver
 
 class TestClosePush(KRunner):
 
