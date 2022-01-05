@@ -21,20 +21,25 @@ logger.info(f"{logo}  {__version__} \n")
 @click.option('-n', '--pkg_name', default='', type=str, help='package_name for android; bundleid for ios')
 @click.option('-p', '--pkg_path', default='', type=str, help='package_download_url or local_package_path')
 @click.option('-s', '--serialno', type=str, multiple=True, help='the android device serial number or ios device udid')
-@click.option('-H', '--host', default='127.0.0.1', type=str, help='the android remote adb server host, [default=127.0.0.1]')
+@click.option('-H', '--host', default='127.0.0.1', type=str,
+              help='the android remote adb server host, [default=127.0.0.1]')
 @click.option('-P', '--port', default=5037, type=int, help='the android remote adb server port, [default=5037]')
 @click.option('-w', '--wda_path', default='', type=str, help='wda xcode project path')
 @click.option('--wda_proxy_url', default='', type=str, help='the wda iproxy url, used it to connect wda server')
-@click.option('--test_package', type=str, multiple=True, help='run tests from test_package, eg: --test_package testcase.ios')
-@click.option('--test_module', type=str, multiple=True, help='run tests from test_module, eg: --test_module testcase.ios.test_demo')
-@click.option('--test_class', type=str, multiple=True, help='run tests from module.TestClass, eg: --test_class testcase.ios.test_demo.TestDemo')
-@click.option('--test_method',  type=str, multiple=True, help='run specified test method, eg: --test_method testcase.ios.test_demo.TestDemo.test_example')
+@click.option('--test_package', type=str, multiple=True,
+              help='run tests from test_package, eg: --test_package testcase.ios')
+@click.option('--test_module', type=str, multiple=True,
+              help='run tests from test_module, eg: --test_module testcase.ios.test_demo')
+@click.option('--test_class', type=str, multiple=True,
+              help='run tests from module.TestClass, eg: --test_class testcase.ios.test_demo.TestDemo')
+@click.option('--test_method', type=str, multiple=True,
+              help='run specified test method, eg: --test_method testcase.ios.test_demo.TestDemo.test_example')
 @click.option('--run_times', type=int, default=1, help='testcases execute times')
 @click.option('--install/--no-install', default=False, help='need to reinstall the app')
 @click.option('--execute_id', type=int, help='the task execute id')
-@click.option('--home_scheme', type=str, help='home page scheme')
+@click.option('--re_apk_url', type=str, help='reinstalling apk url')
 def main(test_type, pkg_name, pkg_path, serialno, install, host, port, wda_path, wda_proxy_url,
-         test_package, test_module, test_class, test_method, run_times, execute_id, home_scheme):
+         test_package, test_module, test_class, test_method, run_times, execute_id, re_apk_url):
     if not test_type:
         raise ParamsError('the param: test_type must be set, usage: --test_type xxx')
     if not pkg_name:
@@ -54,11 +59,14 @@ def main(test_type, pkg_name, pkg_path, serialno, install, host, port, wda_path,
     update_config_value('android', 'adb_server_port', value=port)
     update_config_value('ios', 'wda_path', value=wda_path)
     update_config_value('ios', 'wda_proxy_url', value=wda_proxy_url)
-    update_config_value('ios', 'need_launch_wda', value=False) if wda_proxy_url else update_config_value('ios', 'need_launch_wda', value=True)
+    update_config_value('ios', 'need_launch_wda', value=False) if wda_proxy_url else update_config_value('ios',
+                                                                                                         'need_launch_wda',
+                                                                                                         value=True)
     update_config_value('execute_id', value=execute_id)
-    update_config_value('home_scheme', value=home_scheme)
+    update_config_value('re_apk_url', value=re_apk_url)
 
-    testsuite = TestSuiteBase(test_package=list(test_package), test_module=list(test_module), test_class=list(test_class),
+    testsuite = TestSuiteBase(test_package=list(test_package), test_module=list(test_module),
+                              test_class=list(test_class),
                               test_method=list(test_method), run_times=run_times, install=install)
     testsuite.run_test()
 
