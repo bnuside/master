@@ -18,19 +18,28 @@ ios:
   alert_max_depth: 16
 case_reruns: 0
 need_record: false
-need_upload_result: false
+need_upload_result: true
 acount:
   code: null
   phone_num: null
   password: null
 kim_key: null
 execute_id: null
-
 home_scheme: kwai://home/hot
 kuaishou_schema:
 - kwai://home
 - kwai://myprofile
+- kwai://settings
 nebula_schema:
 - ksnebula://home
 - ksnebula://myprofile
-
+- ksnebula://settings
+scheme_head:
+  com.smile.gifmaker: kwai://
+  com.jiangjia.gif: kwai://
+  com.kwai.gifshow.beta1: kwai://
+  com.kwai.gifshow.beta: kwai://
+  com.kuaishou.nebula: ksnebula://
+  com.kwai.nebula.beta1: ksnebula://
+  com.kwai.nebula.beta: ksnebula://
+re_apk_url: null

@@ -15,10 +15,11 @@ from pageobjects.android.open_notification import Open_Notification
 
 
 class TestOpenPush(KRunner):
-    '''
-    设置页添加push开关
-    '''
 
+    """
+    设置页添加push开关
+    """
+    @KRunner.post_setup
     def setUp(self,phone="13313571109",pasPwd="123123mz"):
         logger.info('启动app')
         time.sleep(2)
@@ -58,6 +59,8 @@ class TestOpenPush(KRunner):
         self.common()
         if Open_Notification.acceptance_Btn.exist()==True:
             self.get_screen('/bubble.png')
+        assert Open_Notification.acceptance_Btn.exist()
+        self.get_screen('/bubble.png')
 
     # 通知关闭后,设置页总开关出现弹窗
     def test_push_popue(self):

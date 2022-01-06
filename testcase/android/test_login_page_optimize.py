@@ -12,6 +12,7 @@ from utils.login_util import LoginUtil
 class TestLoginOptimize(KRunner):
     """快手登录优化测试"""
 
+    @KRunner.post_setup
     def setUp(self):
         adb.clear_app_data(get_config_value('serialno')[0], get_config_value('pkg_name'))
         time.sleep(2)
@@ -37,12 +38,11 @@ class TestLoginOptimize(KRunner):
 
     def test_email_login_optimize(self):
         logger.info("测试邮箱登录是否强化")
-        LoginOptimizePage.email_icon.click()
+        LoginOptimizePage.smile_email_icon.click()
         time.sleep(2)
-        self.assert_equal('测试邮箱登录强化存在', LoginOptimizePage.microblog_icon.exist(2), True)
+        self.assert_equal('测试邮箱登录强化存在', LoginOptimizePage.smile_microblog_icon.exist(2), True)
 
     def test_mobile_click_get_code(self):
-        # 保证其先运行
         logger.info("测试手机号登录页面获取验证码点击")
         time.sleep(2)
         LoginUtil.operation_input_phone(self)
@@ -65,7 +65,7 @@ class TestLoginOptimize(KRunner):
 
     def test_email_keyboard_show_and_vanish(self):
         logger.info("测试邮箱登录页面键盘的展示和消失")
-        LoginOptimizePage.email_icon.click()
+        LoginOptimizePage.smile_email_icon.click()
         time.sleep(2)
         self.assert_equal('测试键盘存在', LoginOptimizePage.email_input_keyboard.exist(2), True)
         self.driver.back()  # 点击back按钮
