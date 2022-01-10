@@ -44,38 +44,13 @@ class TestOpenPush(KRunner):
         time.sleep(3)
         Open_Notification.message_Btn.click()
         self.get_screen('/pushPop.png')
-        time.sleep(2)
-        Open_Notification.close_Btn.click()
-        Open_Notification.message_Btn.click()
+        time.sleep(3)
         Open_Notification.open_Btn.click()
-        time.sleep(2)
+        time.sleep(3)
         Open_Notification.turn_on.click()
         self.driver.back()
         self.get_screen('/openPush.png')
         logger.info('执行完成')
-
-    # 通知关闭后，设置页总开关出现气泡引导
-    def test_bubble_guide(self):
-        self.common()
-        if Open_Notification.acceptance_Btn.exist()==True:
-            self.get_screen('/bubble.png')
-        assert Open_Notification.acceptance_Btn.exist()
-        self.get_screen('/bubble.png')
-
-    # 通知关闭后,设置页总开关出现弹窗
-    def test_push_popue(self):
-        self.common()
-        Open_Notification.message_Btn.click()
-        self.get_screen('/pushPop.png')
-        time.sleep(2)
-        Open_Notification.close_Btn.click()
-        Open_Notification.message_Btn.click()
-        Open_Notification.open_Btn.click()
-        time.sleep(2)
-        Open_Notification.turn_on.click()
-        self.driver.back()
-        time.sleep(2)
-        self.get_screen('/openPush.png')
 
     # 打开设置页操作
     def common(self):
